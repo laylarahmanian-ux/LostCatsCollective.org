@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Using art and QR codes to help neighbors experiencing homelessness. Scan a sign, donate securely, provide gift cards for groceries and essentials.">
+    <meta name="keywords" content="homeless assistance, charity, art activism, QR code donations, gift cards, homelessness, community artists">
+    <meta property="og:title" content="Lost Cats Collective - Helping Our Neighbors Through Gift Cards">
+    <meta property="og:description" content="Everyone stops for lost cat signs. What if we used that attention to help lost people?">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.lostcatscollective.org/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lost Cats Collective">
+    <meta name="twitter:description" content="Using art and QR codes to help neighbors experiencing homelessness">
+    
+    <title>Lost Cats Collective - Helping Our Neighbors Through Gift Cards</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #79b3af;
+            --secondary: #b99bcf;
+            --accent: #e8776f;
+            --tertiary: #eda979;
+            --light-bg: #f8f9fa;
+            --text-dark: #2c3e50;
+            --text-light: #555;
+            --border: #ecf0f1;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .donate-btn {
+            background-color: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .donate-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: var(--white);
+            padding: 4rem 2rem;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #c0392b;
+        }
+        
+        .btn-secondary {
+            background-color: var(--light-bg);
+            color: var(--primary);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--border);
+        }
+        
+        .hero-image {
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: var(--light-bg);
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* How It Works Section */
+        .how-it-works {
+            background-color: var(--light-bg);
+            padding: 4rem 2rem;
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .step {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: left;
+        }
+        
+        .step-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .step h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+        
+        .step p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        
+        /* Impact Section */
+        .impact {
+            background-color: white;
+            padding: 4rem 2rem;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .impact-item {
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+        
+        .impact-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .impact-label {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        
+        .impact-description {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+        
+        .impact-note {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            color: var(--text-light);
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        /* Why Gift Cards Section */
+        .why-gift-cards {
+            background-color: var(--light-bg);
+            padding: 4rem 2rem;
+        }
+        
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .benefit {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        
+        .benefit h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .benefit p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        
+        /* The Art Section */
+        .the-art {
+            background-color: white;
+            padding: 4rem 2rem;
+        }
+        
+        .art-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .art-content h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .art-content p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta p {
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 3rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <a href="https://www.lostcatscollective.org/index.html" class="logo">Lost Cats Collective</a>
+            <ul class="nav-links">
+                <li><a href="https://www.lostcatscollective.org/index.html">Home</a></li>
+                <li><a href="https://www.lostcatscollective.org/how-it-works.html">How It Works</a></li>
+                <li><a href="https://www.lostcatscollective.org/impact.html">Impact</a></li>
+                <li><a href="https://www.lostcatscollective.org/about.html">About</a></li>
+            </ul>
+            <a href="https://www.lostcatscollective.org/donate.html" class="donate-btn">Donate</a>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Everyone Notices a Lost Cat Sign.</h1>
+                <p>What if we used that attention to help lost people?</p>
+                <p>When you scan, you can donate to provide gift cards for neighbors experiencing homelessness—turning empathy into action.</p>
+                <div class="hero-buttons">
+                    <a href="https://www.lostcatscollective.org/donate.html" class="btn btn-primary">Donate Now</a>
+                    <a href="https://www.lostcatscollective.org/how-it-works.html" class="btn btn-secondary">Learn How It Works</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://www.lostcatscollective.org/assets/images/hero-lost.jpg" alt="A person sits on a bench">
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="section-container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Three simple steps from art to impact</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Scan & Donate</h3>
+                    <p>See a Lost Cats sign in your neighborhood. Scan the QR code. Donate securely in under 60 seconds with Apple Pay, Google Pay, or credit card.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>We Buy Gift Cards</h3>
+                    <p>100% of your donation becomes gift cards for groceries, gas, and essentials. Every $25 equals one gift card. No overhead, no middlemen.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Direct Distribution</h3>
+                    <p>Gift cards are distributed with dignity to neighbors experiencing homelessness. People choose what they need, when they need it.</p>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 2rem;">
+                <a href="https://www.lostcatscollective.org/how-it-works.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">See the Full Process</a>
+            </p>
+        </div>
+    </section>
+    
+    <!-- Impact Section -->
+    <section class="impact">
+        <div class="section-container">
+            <h2 class="section-title">Our Goal</h2>
+            <p class="section-subtitle">Real results we're working toward</p>
+            
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <div class="impact-number">5,000</div>
+                    <div class="impact-label">Total Raised</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-number">50</div>
+                    <div class="impact-label">Gift Cards Distributed</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-number">100</div>
+                    <div class="impact-label">Signs Across the Country</div>
+                </div>
+            </div>
+            
+            <div class="impact-note">
+                <strong>100% of donations go directly to gift cards during our pilot phase.</strong> We're all-volunteer right now, so every dollar you give becomes a dollar in someone's pocket.
+            </div>
+            
+            <p style="text-align: center; margin-top: 2rem;">
+                <a href="https://www.lostcatscollective.org/impact.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">See Full Impact Report</a>
+            </p>
+        </div>
+    </section>
+    
+    <!-- Why Gift Cards -->
+    <section class="why-gift-cards">
+        <div class="section-container">
+            <h2 class="section-title">Why Gift Cards?</h2>
+            <p class="section-subtitle">A dignified approach to real help</p>
+            
+            <div class="benefits">
+                <div class="benefit">
+                    <h3>Dignity</h3>
+                    <p>People choose what they need—groceries, gas, hygiene products. Not what we think they need.</p>
+                </div>
+                <div class="benefit">
+                    <h3>Safety</h3>
+                    <p>No cash handling. Secure digital donations. Traceable, transparent impact.</p>
+                </div>
+                <div class="benefit">
+                    <h3>Practical</h3>
+                    <p>Kroger, Meijer, Speedway, CVS—stores people already use. Real needs, real solutions.</p>
+                </div>
+                <div class="benefit">
+                    <h3>Direct</h3>
+                    <p>No middlemen. No overhead in our pilot phase. Your $25 becomes a $25 gift card. Simple.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- The Art Section -->
+    <section class="the-art">
+        <div class="art-content">
+            <h2>The Art</h2>
+            <p>Local artists creating signs that start conversations</p>
+            <p>Each Lost Cats sign is a unique piece of art created by local artists. The "lost cat" aesthetic is universal—everyone stops, everyone looks. But these signs point to a different kind of lost: our neighbors experiencing homelessness.</p>
+            <p>Art has the power to make us pause, to make us feel, to make us act. That's what Lost Cats Collective is about—using creativity to channel empathy into tangible help.</p>
+            <p>
+                <a href="https://www.lostcatscollective.org/about.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">Meet the Artists</a>
+            </p>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="section-container">
+            <h2>Ready to Help?</h2>
+            <p>Your $25 becomes a gift card in the hands of a neighbor experiencing homelessness.</p>
+            <a href="https://www.lostcatscollective.org/donate.html" class="btn btn-primary" style="display: inline-block;">Donate Now</a>
+            <p style="font-size: 0.9rem; margin-top: 1.5rem; opacity: 0.9;">100% goes to gift cards • Secure donation via Stripe</p>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Lost Cats Collective</h4>
+                <p style="font-size: 0.9rem; opacity: 0.9;">Using art and technology to help neighbors experiencing homelessness.</p>
+                <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 1rem;">Grassroots nonprofit initiative<br>501(c)(3) application in progress</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="https://www.lostcatscollective.org/index.html">Home</a></li>
+                    <li><a href="https://www.lostcatscollective.org/how-it-works.html">How It Works</a></li>
+                    <li><a href="https://www.lostcatscollective.org/impact.html">Impact</a></li>
+                    <li><a href="https://www.lostcatscollective.org/about.html">About</a></li>
+                    <li><a href="https://www.lostcatscollective.org/donate.html">Donate</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:[email protected]">Support</a></li>
+                    <li><a href="mailto:[email protected]">Partnerships</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="https://www.lostcatscollective.org/privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2026 Lost Cats Collective. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
